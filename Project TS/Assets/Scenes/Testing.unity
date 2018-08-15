@@ -123,8 +123,9 @@ GameObject:
   - component: {fileID: 629980694}
   - component: {fileID: 629980693}
   - component: {fileID: 629980692}
+  - component: {fileID: 629980695}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Player camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,12 +185,26 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 629980691}
   m_LocalRotation: {x: 0.19594762, y: -0, z: -0, w: 0.98061436}
-  m_LocalPosition: {x: 0, y: 2.16, z: -2.1499996}
+  m_LocalPosition: {x: 0, y: 20.76, z: -12.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 644019355}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 22.6, y: 0, z: 0}
+--- !u!114 &629980695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 629980691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 936730f53894d794596ae5e007cf59e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookAt: {fileID: 644019355}
+  camTransform: {fileID: 629980694}
+  distance: 7
 --- !u!1 &644019350
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,7 +221,7 @@ GameObject:
   - component: {fileID: 644019358}
   - component: {fileID: 644019357}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,8 +238,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880564e334bc5c5469f12fb91fef09d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: {fileID: 644019353}
-  ps: {fileID: 644019358}
+  meshRenderer: {fileID: 644019353}
+  partSystem: {fileID: 644019358}
+  playerCamera: {fileID: 629980693}
 --- !u!136 &644019352
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -289,10 +305,9 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 18.6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 629980694}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &644019356
 Rigidbody:
@@ -5069,7 +5084,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: d300c06cc65b06e429c0ac8411d3934f, type: 2}
+  - {fileID: 2100000, guid: 7e7067e42b9eeac47804320902d98c82, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour {
 
-   public MeshRenderer a;
-    public ParticleSystem ps;
+    public MeshRenderer meshRenderer;
+    public ParticleSystem partSystem;
+    public Camera playerCamera;
+
+
+
     // Use this for initialization
     void Start () {
 		
@@ -16,24 +20,26 @@ public class Movement : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            a.enabled = false;
-            ps.Play(true);
+            meshRenderer.enabled = false;
+            partSystem.Play(true);
             Invoke("warp", 0.2f);
         }
         else
         {
-            var x = Input.GetAxis("Horizontal") * Time.deltaTime * 300.0f;
+        //    var x = Input.GetAxis("Horizontal") * Time.deltaTime * 300.0f;
             var z = Input.GetAxis("Vertical") * Time.deltaTime * 6.0f;
+            var rot = transform.transform.rotation;
+            rot.y = playerCamera.transform.rotation.y;
 
-            transform.Rotate(0, x, 0);
+            transform.rotation = rot;
             transform.Translate(0, 0, z);
         }
     }
 
     void warp()
     {
-        ps.Stop(true);
+        partSystem.Stop(true);
         transform.Translate(0, 0, 20);
-        a.enabled = true;
+        meshRenderer.enabled = true;
     }
 }
