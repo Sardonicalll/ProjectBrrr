@@ -6,9 +6,6 @@ public class Movement : MonoBehaviour {
 
     public MeshRenderer meshRenderer;
     public ParticleSystem partSystem;
-    public Camera playerCamera;
-
-
 
     // Use this for initialization
     void Start () {
@@ -28,11 +25,12 @@ public class Movement : MonoBehaviour {
         {
         //    var x = Input.GetAxis("Horizontal") * Time.deltaTime * 300.0f;
             var z = Input.GetAxis("Vertical") * Time.deltaTime * 6.0f;
-            var rot = transform.transform.rotation;
-            rot.y = playerCamera.transform.rotation.y;
+            var x = Input.GetAxis("Horizontal") * Time.deltaTime * 6.0f;
+            float horizontal = Input.GetAxis("Mouse X");
+            transform.transform.Rotate(0, horizontal, 0);
 
-            transform.rotation = rot;
-            transform.Translate(0, 0, z);
+
+            transform.Translate(x, 0, z);
         }
     }
 
