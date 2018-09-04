@@ -6,6 +6,7 @@ public class Movement : MonoBehaviour {
 
     public MeshRenderer meshRenderer;
     public ParticleSystem partSystem;
+    public float jumpDist = 20;
 
     // Use this for initialization
     void Start () {
@@ -37,7 +38,7 @@ public class Movement : MonoBehaviour {
     void warp()
     {
         partSystem.Stop(true);
-        transform.Translate(0, 0, 20);
+        transform.Translate(0, 0, jumpDist);
         meshRenderer.enabled = true;
     }
 }
