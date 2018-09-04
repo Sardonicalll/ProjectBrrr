@@ -7,16 +7,14 @@ public class CameraControl : MonoBehaviour
 
     // Reference to https://n3k.ca/ for the creation of this asset
     private const float Y_ANGLE_MIN = 0.0f;
-    private const float Y_ANGLE_MAX = 50.0f;
+    private const float Y_ANGLE_MAX = 360.0f;
 
     public Transform lookAt;
     public Transform camTransform;
     public float distance = 10.0f;
 
-    private float currentX = 0.0f;
+    private float currentX = 00.0f;
     private float currentY = 45.0f;
-    private float sensitivityX = 10.0f;
-    private float sensitivityY = 10.0f;
 
     private void Start()
     {
