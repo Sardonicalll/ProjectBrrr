@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour {
 
             // Animation stuff
 
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.F))
             {
                 animator.SetTrigger("dab"); // This will be a easteregg or removed soon.
             }
