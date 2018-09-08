@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class test : MonoBehaviour {
+public class PugatooAI : MonoBehaviour {
 
 
     public Animator animator;
