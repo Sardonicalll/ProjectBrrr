@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PugatooAI : MonoBehaviour {
 
@@ -8,6 +9,7 @@ public class PugatooAI : MonoBehaviour {
     public Animator animator;
     public Transform player;
     public Rigidbody rigid;
+    public NavMeshAgent agent;
 
     public float Speed = .03f;
     public float lookDelay = 1;
@@ -25,7 +27,7 @@ public class PugatooAI : MonoBehaviour {
         if (Vector3.Distance(transform.position, target) > 2 )
         {
             animator.SetBool("walking", true);
-            transform.position = Vector3.MoveTowards(transform.position, target, Speed);
+            agent.SetDestination(target);
         }
         else
         {
