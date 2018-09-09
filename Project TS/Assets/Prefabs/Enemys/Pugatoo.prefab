@@ -899,7 +899,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!65 &65080562329074120
 BoxCollider:
@@ -911,8 +911,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.99877477, y: 1.142876, z: 1.4262114}
-  m_Center: {x: -0.022233367, y: 0.5980385, z: 0.15597248}
+  m_Size: {x: 0.99877477, y: 0.77181923, z: 1.4262114}
+  m_Center: {x: -0.022233367, y: 0.7835669, z: 0.15597248}
 --- !u!95 &95370059027036648
 Animator:
   serializedVersion: 3
@@ -944,10 +944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 95370059027036648}
   player: {fileID: 0}
-  rigid: {fileID: 0}
   agent: {fileID: 195302767628535058}
-  Speed: 0.05
-  lookDelay: 1
 --- !u!137 &137720216261662644
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -1040,7 +1037,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 2.3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
