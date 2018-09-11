@@ -6,5 +6,79 @@ AvatarMask:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Bottom-half Mask
-  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-  m_Elements: []
+  m_Mask: 01000000000000000000000001000000010000000000000000000000000000000000000001000000010000000000000000000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: PrefJoJoMesh
+    m_Weight: 1
+  - m_Path: Prof_JoJo
+    m_Weight: 1
+  - m_Path: Prof_JoJo/Control
+    m_Weight: 1
+  - m_Path: Prof_JoJo/Control/ElbowIK_L
+    m_Weight: 0
+  - m_Path: Prof_JoJo/Control/footHeelIK_L
+    m_Weight: 1
+  - m_Path: Prof_JoJo/Control/footHeelIK_L/foot_L
+    m_Weight: 1
+  - m_Path: Prof_JoJo/Control/footHeelIK_L/foot_L/toe_L
+    m_Weight: 1
+  - m_Path: Prof_JoJo/Control/footHeelIK_R
+    m_Weight: 1
+  - m_Path: Prof_JoJo/Control/footHeelIK_R/foot_R
+    m_Weight: 1
+  - m_Path: Prof_JoJo/Control/footHeelIK_R/foot_R/toe_R
+    m_Weight: 1
+  - m_Path: Prof_JoJo/Control/HandIK_L
+    m_Weight: 1
+  - m_Path: Prof_JoJo/Control/HandIK_R
+    m_Weight: 1
+  - m_Path: Prof_JoJo/Control/kneeIK_L
+    m_Weight: 1
+  - m_Path: Prof_JoJo/Control/spine
+    m_Weight: 1
+  - m_Path: Prof_JoJo/Control/spine/pelvis_L
+    m_Weight: 0
+  - m_Path: Prof_JoJo/Control/spine/pelvis_R
+    m_Weight: 0
+  - m_Path: Prof_JoJo/Control/spine/spine_001
+    m_Weight: 0
+  - m_Path: Prof_JoJo/Control/spine/spine_001/spine_002
+    m_Weight: 0
+  - m_Path: Prof_JoJo/Control/spine/spine_001/spine_002/spine_003
+    m_Weight: 0
+  - m_Path: Prof_JoJo/Control/spine/spine_001/spine_002/spine_003/breast_L
+    m_Weight: 0
+  - m_Path: Prof_JoJo/Control/spine/spine_001/spine_002/spine_003/breast_R
+    m_Weight: 0
+  - m_Path: Prof_JoJo/Control/spine/spine_001/spine_002/spine_003/shoulder_L
+    m_Weight: 0
+  - m_Path: Prof_JoJo/Control/spine/spine_001/spine_002/spine_003/shoulder_L/upper_arm_L
+    m_Weight: 0
+  - m_Path: Prof_JoJo/Control/spine/spine_001/spine_002/spine_003/shoulder_L/upper_arm_L/forearm_L
+    m_Weight: 0
+  - m_Path: Prof_JoJo/Control/spine/spine_001/spine_002/spine_003/shoulder_L/upper_arm_L/forearm_L/hand_L
+    m_Weight: 0
+  - m_Path: Prof_JoJo/Control/spine/spine_001/spine_002/spine_003/shoulder_R
+    m_Weight: 0
+  - m_Path: Prof_JoJo/Control/spine/spine_001/spine_002/spine_003/shoulder_R/upper_arm_R
+    m_Weight: 0
+  - m_Path: Prof_JoJo/Control/spine/spine_001/spine_002/spine_003/shoulder_R/upper_arm_R/forearm_R
+    m_Weight: 0
+  - m_Path: Prof_JoJo/Control/spine/spine_001/spine_002/spine_003/shoulder_R/upper_arm_R/forearm_R/hand_R
+    m_Weight: 0
+  - m_Path: Prof_JoJo/Control/spine/spine_001/spine_002/spine_003/spine_004
+    m_Weight: 0
+  - m_Path: Prof_JoJo/Control/spine/spine_001/spine_002/spine_003/spine_004/spine_005
+    m_Weight: 0
+  - m_Path: Prof_JoJo/Control/spine/spine_001/spine_002/spine_003/spine_004/spine_005/spine_006
+    m_Weight: 0
+  - m_Path: Prof_JoJo/Control/spine/thigh_L
+    m_Weight: 1
+  - m_Path: Prof_JoJo/Control/spine/thigh_L/shin_L
+    m_Weight: 1
+  - m_Path: Prof_JoJo/Control/spine/thigh_R
+    m_Weight: 1
+  - m_Path: Prof_JoJo/Control/spine/thigh_R/shin_R
+    m_Weight: 1
