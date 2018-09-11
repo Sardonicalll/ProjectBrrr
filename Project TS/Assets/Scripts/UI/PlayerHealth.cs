@@ -27,7 +27,7 @@ public Text death;
         }
 
 	if (currenthealth <= 0) {
-		death.text = "REEEEEEEEEEEEEEEEE U DEAD";
+		death.text = "ded";
 
 	}
 	}
