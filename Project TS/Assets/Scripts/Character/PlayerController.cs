@@ -71,6 +71,32 @@ public class PlayerController : MonoBehaviour {
                 animator.SetBool("walking", false);
             }
 
+            if (Input.GetKey(KeyCode.S))
+            {
+                animator.SetBool("revWalking", true);
+            }
+            else
+            {
+                animator.SetBool("revWalking", false);
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                animator.SetBool("L_sideStep", true);
+            }
+            else
+            {
+                animator.SetBool("L_sideStep", false);
+            }
+
+            if (Input.GetKey(KeyCode.D))
+            {
+                animator.SetBool("R_sideStep", true);
+            }
+            else
+            {
+                animator.SetBool("R_sideStep", false);
+            }
 
         }
     }
