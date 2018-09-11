@@ -93,9 +93,6 @@ public class PlayerController : MonoBehaviour {
                 animator.SetBool("step", false);
             }
 
-
-
-
         }
     }
 
