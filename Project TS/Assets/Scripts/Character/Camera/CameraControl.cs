@@ -6,26 +6,26 @@ public class CameraControl : MonoBehaviour
 {
 
     // Reference to https://n3k.ca/ for the creation of this asset
+
     private const float Y_ANGLE_MIN = 0.0f;
-    private const float Y_ANGLE_MAX = 360.0f;
+    private const float Y_ANGLE_MAX = 50.0f;
 
-    public Transform lookAt;
-    public Transform camTransform;
-    public float distance = 10.0f;
+     Transform lookAt;
+     Transform camTransform;
+      public float distance = 10.0f;
 
-    private float currentX = 00.0f;
+    private float currentX = 0.0f;
     private float currentY = 45.0f;
 
     private void Start()
     {
+        lookAt = GameObject.FindWithTag("Player").transform.Find("lookAt").transform;
         camTransform = transform;
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 
     private void Update()
     {
-        currentX += Input.GetAxis("Mouse X");
         currentY += Input.GetAxis("Mouse Y");
 
         currentY = Mathf.Clamp(currentY, Y_ANGLE_MIN, Y_ANGLE_MAX);
@@ -39,5 +39,8 @@ public class CameraControl : MonoBehaviour
         camTransform.LookAt(lookAt.position);
     }
 
-
+    public void setX(float x)
+    {
+        currentX += x;
+    }
 }

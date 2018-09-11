@@ -7,13 +7,16 @@ public class PlayerController : MonoBehaviour {
     public float walkingSpeed = 4.0f;
 
     SkinnedMeshRenderer meshRenderer;
+    public GameObject cama;
     Animator animator;
     ParticleSystem partSystem;
     Transform center;
+    CameraControl cam;
 
     // Use this for initialization
     void Start () {
         animator = gameObject.GetComponent<Animator>();
+        cam = cama.GetComponent<CameraControl>();
         meshRenderer = this.transform.Find("PrefJoJoMesh").gameObject.GetComponent<SkinnedMeshRenderer>();
         center = this.transform.Find("center");
         partSystem = center.GetComponent<ParticleSystem>();
@@ -41,6 +44,7 @@ public class PlayerController : MonoBehaviour {
             var z = Input.GetAxis("Vertical") * Time.deltaTime * walkingSpeed;
             var x = Input.GetAxis("Horizontal") * Time.deltaTime * walkingSpeed;
             float horizontal = Input.GetAxis("Mouse X");
+            cam.setX(horizontal);
             transform.transform.Rotate(0, horizontal, 0);
 
             //Move
