@@ -60,11 +60,11 @@ public class PlayerController : MonoBehaviour {
             {
                 if (Input.GetKey(KeyCode.S))
                 {
-                    animator.SetFloat("walkingSpeed", -1);
+                    animator.SetFloat("walkingSpeed", -1.6f);
                 }
                 else
                 {
-                    animator.SetFloat("walkingSpeed", 1);
+                    animator.SetFloat("walkingSpeed", 1.6f);
                 }
 
                 animator.SetBool("walking", true);
@@ -79,11 +79,11 @@ public class PlayerController : MonoBehaviour {
             {
                 if (Input.GetKey(KeyCode.A))
                 {
-                    animator.SetFloat("stepSpeed", -1);
+                    animator.SetFloat("stepSpeed", -3.2f);
                 }
                 else
                 {
-                    animator.SetFloat("stepSpeed", 1);
+                    animator.SetFloat("stepSpeed", 3.2f);
                 }
 
                 animator.SetBool("step", true);
