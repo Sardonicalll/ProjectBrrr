@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour {
     public float walkingSpeed = 4.0f;
 
     SkinnedMeshRenderer meshRenderer;
-    public GameObject cama;
     Animator animator;
     ParticleSystem partSystem;
     Transform center;
@@ -16,7 +15,7 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         animator = gameObject.GetComponent<Animator>();
-        cam = cam.GetComponent<CameraControl>();
+        cam = GameObject.FindWithTag("MainCamera").GetComponent<CameraControl>();
         meshRenderer = this.transform.Find("PrefJoJoMesh").gameObject.GetComponent<SkinnedMeshRenderer>();
         center = this.transform.Find("center");
         partSystem = center.GetComponent<ParticleSystem>();
