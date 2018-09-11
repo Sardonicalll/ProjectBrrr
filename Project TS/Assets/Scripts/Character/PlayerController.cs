@@ -75,6 +75,27 @@ public class PlayerController : MonoBehaviour {
             }
 
 
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            {
+                if (Input.GetKey(KeyCode.A))
+                {
+                    animator.SetFloat("stepSpeed", -1);
+                }
+                else
+                {
+                    animator.SetFloat("stepSpeed", 1);
+                }
+
+                animator.SetBool("step", true);
+            }
+            else
+            {
+                animator.SetBool("step", false);
+            }
+
+
+
+
         }
     }
 
