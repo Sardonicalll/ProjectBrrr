@@ -15,8 +15,8 @@ public class PlayerController : MonoBehaviour {
     void Start () {
         animator = gameObject.GetComponent<Animator>();
         meshRenderer = this.transform.Find("PrefJoJoMesh").gameObject.GetComponent<SkinnedMeshRenderer>();
-        partSystem = Transform.FindObjectOfType<ParticleSystem>();
         center = this.transform.Find("center");
+        partSystem = center.GetComponent<ParticleSystem>();
     }
 	
 	// Update is called once per frame
