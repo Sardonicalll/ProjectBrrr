@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         animator = gameObject.GetComponent<Animator>();
-        cam = cama.GetComponent<CameraControl>();
+        cam = cam.GetComponent<CameraControl>();
         meshRenderer = this.transform.Find("PrefJoJoMesh").gameObject.GetComponent<SkinnedMeshRenderer>();
         center = this.transform.Find("center");
         partSystem = center.GetComponent<ParticleSystem>();
