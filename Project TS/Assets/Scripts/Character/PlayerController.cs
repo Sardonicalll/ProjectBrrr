@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
+    public float jumpDist = 5;
+    public float walkingSpeed = 4.0f;
 
-    public SkinnedMeshRenderer meshRenderer;
-    public Animator animator;
-    public ParticleSystem partSystem;
-    public float jumpDist = 20;
-    public float dist = 5;
-    public Transform center;
+    SkinnedMeshRenderer meshRenderer;
+    Animator animator;
+    ParticleSystem partSystem;
+    Transform center;
 
     // Use this for initialization
     void Start () {
-		
-	}
+        animator = gameObject.GetComponent<Animator>();
+        meshRenderer = this.transform.Find("PrefJoJoMesh").gameObject.GetComponent<SkinnedMeshRenderer>();
+        center = this.transform.Find("center");
+        partSystem = center.GetComponent<ParticleSystem>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -24,7 +27,7 @@ public class PlayerController : MonoBehaviour {
             //Raycast checking infront
             Vector3 fwd = center.TransformDirection(Vector3.forward);
             RaycastHit objectHit;
-            if (!Physics.Raycast(center.transform.position, fwd, out objectHit, dist + 1))
+            if (!Physics.Raycast(center.transform.position, fwd, out objectHit, jumpDist + 1))
             {
                 //Teleport
                 meshRenderer.enabled = false;
@@ -35,8 +38,8 @@ public class PlayerController : MonoBehaviour {
         else
         {
             //Movement
-            var z = Input.GetAxis("Vertical") * Time.deltaTime * 6.0f;
-            var x = Input.GetAxis("Horizontal") * Time.deltaTime * 6.0f;
+            var z = Input.GetAxis("Vertical") * Time.deltaTime * walkingSpeed;
+            var x = Input.GetAxis("Horizontal") * Time.deltaTime * walkingSpeed;
             float horizontal = Input.GetAxis("Mouse X");
             transform.transform.Rotate(0, horizontal, 0);
 
@@ -50,8 +53,17 @@ public class PlayerController : MonoBehaviour {
                 animator.SetTrigger("dab"); // This will be a easteregg or removed soon.
             }
 
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
             {
+                if (Input.GetKey(KeyCode.S))
+                {
+                    animator.SetFloat("walkingSpeed", -1);
+                }
+                else
+                {
+                    animator.SetFloat("walkingSpeed", 1);
+                }
+
                 animator.SetBool("walking", true);
             }
             else
@@ -59,6 +71,32 @@ public class PlayerController : MonoBehaviour {
                 animator.SetBool("walking", false);
             }
 
+            if (Input.GetKey(KeyCode.S))
+            {
+                animator.SetBool("revWalking", true);
+            }
+            else
+            {
+                animator.SetBool("revWalking", false);
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                animator.SetBool("L_sideStep", true);
+            }
+            else
+            {
+                animator.SetBool("L_sideStep", false);
+            }
+
+            if (Input.GetKey(KeyCode.D))
+            {
+                animator.SetBool("R_sideStep", true);
+            }
+            else
+            {
+                animator.SetBool("R_sideStep", false);
+            }
 
         }
     }

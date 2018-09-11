@@ -6,26 +6,43 @@ using UnityEngine.AI;
 public class PugatooAI : MonoBehaviour {
 
 
-    public Animator animator;
-    public Transform player;
-    public NavMeshAgent agent;
+    Animator animator;
+    Transform player;
+    NavMeshAgent agent;
+    Rigidbody rigid;
 
+    Vector3 curPos;
+    Vector3 lastPos;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    // Use this for initialization
+    void Start () {
+        animator = gameObject.GetComponent<Animator>();
+        agent = gameObject.GetComponent<NavMeshAgent>();
+        player = GameObject.FindWithTag("Player").transform;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-            if(agent.SetDestination(player.transform.position)){
+        agent.SetDestination(player.transform.position);
+
+            if (HasMoved()){
                 animator.SetBool("walking", true);
-            }
-            else
-            {
+            } else {
                 animator.SetBool("walking", false);
             }
 
+    }
+
+
+    bool HasMoved()
+    {
+        curPos = transform.position;
+        if (curPos == lastPos)
+        {
+            return false;
+        }
+        lastPos = curPos;
+        return true;
     }
 }
 
