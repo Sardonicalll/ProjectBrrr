@@ -37,7 +37,7 @@ AvatarMask:
   - m_Path: Prof_JoJo/Control/kneeIK_L
     m_Weight: 0
   - m_Path: Prof_JoJo/Control/spine
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Prof_JoJo/Control/spine/pelvis_L
     m_Weight: 1
   - m_Path: Prof_JoJo/Control/spine/pelvis_R
