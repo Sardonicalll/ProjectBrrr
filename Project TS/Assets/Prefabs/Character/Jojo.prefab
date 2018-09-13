@@ -52,6 +52,8 @@ GameObject:
   - component: {fileID: 95168143708301566}
   - component: {fileID: 114829737505606378}
   - component: {fileID: 143806155082618692}
+  - component: {fileID: 114021010701254366}
+  - component: {fileID: 114217037172145740}
   m_Layer: 0
   m_Name: Jojo
   m_TagString: Player
@@ -1258,6 +1260,30 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114021010701254366
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1128542573008512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d554b0a86bda4c44c8b5fedb631c4819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stamina: 100
+--- !u!114 &114217037172145740
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1128542573008512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13336f138303eda4abaaaad162537a6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!114 &114829737505606378
 MonoBehaviour:
   m_ObjectHideFlags: 1
