@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour {
     public float walkingSpeed = 4.0f;
 
     SkinnedMeshRenderer meshRenderer;
-    Animator animator;
     ParticleSystem partSystem;
     Transform center;
     CameraControl cam;
@@ -15,7 +14,6 @@ public class PlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        animator = gameObject.GetComponent<Animator>();
         cam = GameObject.FindWithTag("MainCamera").GetComponent<CameraControl>();
         meshRenderer = this.transform.Find("PrefJoJoMesh").gameObject.GetComponent<SkinnedMeshRenderer>();
         center = this.transform.Find("center");
@@ -36,11 +34,10 @@ public class PlayerController : MonoBehaviour {
                 //Teleport
                 meshRenderer.enabled = false;
                 partSystem.Play(true);
-                Invoke("warp", 0.2f);
+                Invoke("Warp", 0.2f);
             }
         }
-        else
-        {
+
             //Movement
             var z = Input.GetAxis("Vertical") * Time.deltaTime * walkingSpeed;
             var x = Input.GetAxis("Horizontal") * Time.deltaTime * walkingSpeed;
@@ -49,9 +46,8 @@ public class PlayerController : MonoBehaviour {
             transform.transform.Rotate(0, horizontal, 0);
             controller.Move(transform.TransformDirection(new Vector3(x, 0, z)));
         }
-    }
 
-    void warp()
+    void Warp()
     {
         partSystem.Stop(true);
         transform.Translate(0, 0, jumpDist);
