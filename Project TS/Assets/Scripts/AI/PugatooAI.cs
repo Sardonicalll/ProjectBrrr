@@ -9,7 +9,6 @@ public class PugatooAI : MonoBehaviour {
     Animator animator;
     Transform player;
     NavMeshAgent agent;
-    Rigidbody rigid;
 
     Vector3 curPos;
     Vector3 lastPos;
@@ -24,17 +23,10 @@ public class PugatooAI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         agent.SetDestination(player.transform.position);
-
-            if (HasMoved()){
-                animator.SetBool("walking", true);
-            } else {
-                animator.SetBool("walking", false);
-            }
-
     }
 
 
-    bool HasMoved()
+    public bool HasMoved()
     {
         curPos = transform.position;
         if (curPos == lastPos)
