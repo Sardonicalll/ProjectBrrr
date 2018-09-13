@@ -93,6 +93,42 @@ public class PlayerController : MonoBehaviour {
                 animator.SetBool("step", false);
             }
 
+            if (Input.GetKey("up") || Input.GetKey("down"))
+            {
+                if (Input.GetKey("down"))
+                {
+                    animator.SetFloat("spinSpeed", -3f);
+                }
+                else
+                {
+                    animator.SetFloat("spinSpeed", 3f);
+                }
+
+                animator.SetBool("spin", true);
+            }
+            else
+            {
+                animator.SetBool("spin", false);
+            }
+
+            if (Input.GetKey("left") || Input.GetKey("right"))
+            {
+                if (Input.GetKey("left"))
+                {
+                    animator.SetFloat("spinSideSpeed", -6f);
+                }
+                else
+                {
+                    animator.SetFloat("spinSideSpeed", 6f);
+                }
+
+                animator.SetBool("spinSide", true);
+            }
+            else
+            {
+                animator.SetBool("spinSide", false);
+            }
+
         }
     }
 
