@@ -13,6 +13,9 @@ public class PugatooAI : MonoBehaviour {
     Vector3 curPos;
     Vector3 lastPos;
 
+    Quaternion curRot;
+    Quaternion lastRot;
+
     // Use this for initialization
     void Start () {
         animator = gameObject.GetComponent<Animator>();
@@ -34,6 +37,17 @@ public class PugatooAI : MonoBehaviour {
             return false;
         }
         lastPos = curPos;
+        return true;
+    }
+
+    public bool HasRotated()
+    {
+        curRot = transform.rotation;
+        if (curRot == lastRot)
+        {
+            return false;
+        }
+        lastRot = curRot;
         return true;
     }
 }
