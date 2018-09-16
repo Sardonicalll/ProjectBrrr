@@ -1,0 +1,54 @@
+Maehehm Media, Inc.
+
+http://maehem.com
+
+3D Model Library
+
+Part #:  	HITECH-DOOR-001
+
+Title:  	High Technology - Door - 001
+
+Description:  	Sci-fi sliding door
+
+Keywords:	Hitech door sci-fi sliding metal space airlock
+
+Source:		Caligari trueSpace 5
+
+File Formats:	SCN, COB, 3DS
+
+Scale:		1:1
+
+Faces:		326
+
+Vertices:	404
+
+Price:		$5 
+
+Artist:		Mark Koch 
+
+Files:		hitech-door-001.scn
+			Caligari trueSpace5 scene file. Contains
+			all objects and some sample lighting and
+			cameras.
+
+		maehem-hitech-door-001.obl (directory)
+			Caligari Object Library.  Place this ".obl" directory
+			(not just the files) in your \trueSpace5\Library directory.
+			Use the Object Library feature within the trueSpace5 program 
+			to access the objects.
+
+		textures
+			Required textures for some objects.
+			Place the files in your \trueSpace5\Textures
+			directory. Some objects do not have textures
+			and this directory may be empty.
+
+		3ds
+			3DS versions of the object(s).  May not
+			support the applied textures, bump or
+			color information.  Use at your own risk.
+			These files are supplied for the convenience
+			of 3D Studio users.
+
+		maehem-hitech-door-001.jpg
+			Sample image of included object(s).
