@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class PugatooAI : MonoBehaviour {
 
 
-    Animator animator;
     Transform player;
     NavMeshAgent agent;
 
@@ -18,7 +17,6 @@ public class PugatooAI : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        animator = gameObject.GetComponent<Animator>();
         agent = gameObject.GetComponent<NavMeshAgent>();
         player = GameObject.FindWithTag("Player").transform;
     }
@@ -50,5 +48,11 @@ public class PugatooAI : MonoBehaviour {
         lastRot = curRot;
         return true;
     }
+
+    void Attack()
+    {
+
+    }
+
 }
 
