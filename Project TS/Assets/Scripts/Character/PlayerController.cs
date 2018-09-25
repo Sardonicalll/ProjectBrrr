@@ -11,9 +11,13 @@ public class PlayerController : MonoBehaviour {
     Transform center;
     CameraControl cam;
     CharacterController controller;
+    public BoxCollider sword;
+    float y;
+    Vector3 lastValidPosition;
 
     // Use this for initialization
     void Start () {
+        y = transform.position.y;
         cam = GameObject.FindWithTag("MainCamera").GetComponent<CameraControl>();
         meshRenderer = this.transform.Find("PrefJoJoMesh").gameObject.GetComponent<SkinnedMeshRenderer>();
         center = this.transform.Find("center");
@@ -45,7 +49,17 @@ public class PlayerController : MonoBehaviour {
             cam.setX(horizontal);
             transform.transform.Rotate(0, horizontal, 0);
             controller.Move(transform.TransformDirection(new Vector3(x, 0, z)));
+
+        //Anti climb prevention
+        if (transform.position.y != y)
+        {
+            transform.position = lastValidPosition;
         }
+        else
+        {
+            lastValidPosition = transform.position;
+        }
+    }
 
     void Warp()
     {

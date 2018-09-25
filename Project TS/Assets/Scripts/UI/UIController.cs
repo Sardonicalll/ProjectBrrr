@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour {
 
-    PlayerHealth ph;
-    PlayerStamina ps;
+    Health ph;
+    Stamina ps;
 
     public RawImage dhBG;
     public Text dhT;
@@ -19,8 +19,8 @@ public class UIController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         GameObject player = GameObject.FindWithTag("Player");
-        ph = player.GetComponent<PlayerHealth>();
-        ps = player.GetComponent<PlayerStamina>();
+        ph = player.GetComponent<Health>();
+        ps = player.GetComponent<Stamina>();
     }
 	
 	// Update is called once per frame
