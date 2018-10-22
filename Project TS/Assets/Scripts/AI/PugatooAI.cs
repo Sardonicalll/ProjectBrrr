@@ -15,15 +15,46 @@ public class PugatooAI : MonoBehaviour {
     Quaternion curRot;
     Quaternion lastRot;
 
+    Animator animator;
+
+    bool aggro = false;
+
+    public float aggroRange = 5.3f;
+    public float attackRange = 1.3f;
+
+    public float attackDelay = 1;
+    float lastAttack = 0;
+
     // Use this for initialization
     void Start () {
         agent = gameObject.GetComponent<NavMeshAgent>();
         player = GameObject.FindWithTag("Player").transform;
+        animator = this.GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        agent.SetDestination(player.transform.position);
+        var dist = Vector3.Distance(this.transform.position, player.transform.position);
+        if(!aggro && dist <= aggroRange)
+        {
+            aggro = true;
+        }
+        else if (aggro && dist >= aggroRange)
+        {
+            aggro = false;
+        }
+
+        if (aggro)
+        {
+            if (dist <= attackRange)
+            {
+                Attack();
+            }else
+            {
+                agent.SetDestination(player.transform.position);
+            }
+        }
+       
     }
 
 
@@ -51,7 +82,15 @@ public class PugatooAI : MonoBehaviour {
 
     void Attack()
     {
+        if (Time.time > lastAttack)
+        {
+            transform.LookAt(player);
+            animator.SetTrigger("Lunge");
+            player.GetComponent<Health>().TakeDamage(10);
 
+            lastAttack = Time.time + attackDelay;
+        }
+ 
     }
 
 }

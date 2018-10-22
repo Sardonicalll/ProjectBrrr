@@ -5,9 +5,11 @@ public class Health : MonoBehaviour {
     public float health = 100;
     private float maxHealth;
 
+    AudioSource sound;
 	void Start () {
         maxHealth = health;
-	}
+        sound = gameObject.GetComponent<AudioSource>();
+    }
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKeyDown(KeyCode.K))
@@ -16,13 +18,17 @@ public class Health : MonoBehaviour {
         }
 
 	if (health <= 0) {
-            Destroy(gameObject);
+            if(gameObject.tag != "Player")
+            {
+                Destroy(gameObject);
+            }
 	}
 	}
 
     public void TakeDamage(float amount)
     {
         health -= amount;
+        sound.Play();
     }
 
     public float GetHealth()
