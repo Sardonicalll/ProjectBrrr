@@ -1,14 +1,12 @@
 ﻿using UnityEngine;
 
-public class Health : MonoBehaviour {
+public class Health : MonoBehaviour { // Animal damaged sound now in ResponseHandler.cs
 
     public float health = 100;
     private float maxHealth;
 
-    AudioSource sound;
 	void Start () {
         maxHealth = health;
-        sound = gameObject.GetComponent<AudioSource>();
     }
 	// Update is called once per frame
 	void Update () {
@@ -28,7 +26,6 @@ public class Health : MonoBehaviour {
     public void TakeDamage(float amount)
     {
         health -= amount;
-        sound.Play();
     }
 
     public float GetHealth()

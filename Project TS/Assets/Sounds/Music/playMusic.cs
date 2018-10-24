@@ -2,74 +2,72 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playMusic : MonoBehaviour
-{
+public class playMusic : playAudio {
     // Variables
-    public AudioSource menu;
-    public AudioSource overworld;
-    public AudioSource combat;
-    public AudioSource currentSong;
+    public AudioClip menu;
+    public AudioClip overworld;
+    public AudioClip combat;
 
     void retainBetweenScenes() { // When moving between scenes, make sure the music manager can be used between them.
         DontDestroyOnLoad(transform.gameObject);
     }
 
     // Play any song of your choosing.
-    void play(AudioSource selection) {
-        if (currentSong != null) {
-            currentSong.Stop();
+    void play(AudioClip selection) {
+        if (currentAudio != null) {
+            currentAudio.Stop();
         }
-        currentSong = selection;
-        currentSong.volume = 1;
-        currentSong.Play();
+        currentAudio.clip = selection;
+        currentAudio.volume = 1;
+        currentAudio.Play();
     }
 
     // Continue a paused song from where you paused it.
     void playCurr() {
-        currentSong.UnPause();
+        currentAudio.UnPause();
     }
 
     // Pause the current song you're playing.
     void pauseCurr() {
-        currentSong.Pause();
+        currentAudio.Pause();
     }
 
     // Restart a song from the beginning.
     void restart() {
-        currentSong.Stop();
-        currentSong.Play();
+        currentAudio.Stop();
+        currentAudio.Play();
     }
 
-    // Stop the current song, and make the currentSong variable null.
+    // Stop the current song, and make the currentAudio variable null.
     void stop() {
-        currentSong.Stop();
-        currentSong = null;
+        currentAudio.Stop();
+        currentAudio = null;
     }
 
     // Switch between the overworld and combat music.
     IEnumerator overworldSwitch()
     {
-        if (currentSong != null)
+        if (currentAudio != null)
         {
             // Decrease the volume of a song gradually until stopping it.
-            float startVolume = currentSong.volume;
-            while (currentSong.volume > 0)
+            float startVolume = currentAudio.volume;
+            while (currentAudio.volume > 0)
             {
-                currentSong.volume -= startVolume * Time.deltaTime / 2.3f;
+                currentAudio.volume -= startVolume * Time.deltaTime / 2.3f;
                 yield return null;
             }
-            currentSong.Stop();
+            currentAudio.Stop();
 
-            if (currentSong == overworld)
+            if (currentAudio == overworld)
             {
-                currentSong = combat;
+                currentAudio.clip = combat;
             }
-            else if (currentSong == combat)
+            else if (currentAudio == combat)
             {
-                currentSong = overworld;
+                currentAudio.clip = overworld;
             }
 
-            play(currentSong);
+            currentAudio.Play();
         }
     }
 

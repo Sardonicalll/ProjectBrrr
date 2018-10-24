@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour { // Plays the teleportation sound
     public float jumpDist = 5;
     public float walkingSpeed = 4.0f;
 
@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour {
     float y;
     Vector3 lastValidPosition;
 
+    AudioSource[] audio;
+
     // Use this for initialization
     void Start () {
         y = transform.position.y;
@@ -23,6 +25,7 @@ public class PlayerController : MonoBehaviour {
         center = this.transform.Find("center");
         partSystem = center.GetComponent<ParticleSystem>();
         controller = gameObject.GetComponent<CharacterController>();
+        audio = gameObject.GetComponents<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -36,6 +39,7 @@ public class PlayerController : MonoBehaviour {
             if (!Physics.Raycast(center.transform.position, fwd, out objectHit, jumpDist + 1))
             {
                 //Teleport
+                audio[5].Play();
                 meshRenderer.enabled = false;
                 partSystem.Play(true);
                 Invoke("Warp", 0.2f);

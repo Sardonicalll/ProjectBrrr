@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PugatooAI : MonoBehaviour {
-
+public class PugatooAI : MonoBehaviour { // Playing the human damaged sound effect
 
     Transform player;
     NavMeshAgent agent;
@@ -25,11 +24,14 @@ public class PugatooAI : MonoBehaviour {
     public float attackDelay = 1;
     float lastAttack = 0;
 
+    public AudioSource[] sound;
+
     // Use this for initialization
     void Start () {
         agent = gameObject.GetComponent<NavMeshAgent>();
         player = GameObject.FindWithTag("Player").transform;
         animator = this.GetComponent<Animator>();
+        sound = GetComponents<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -56,7 +58,6 @@ public class PugatooAI : MonoBehaviour {
         }
        
     }
-
 
     public bool HasMoved()
     {
@@ -87,6 +88,7 @@ public class PugatooAI : MonoBehaviour {
             transform.LookAt(player);
             animator.SetTrigger("Lunge");
             player.GetComponent<Health>().TakeDamage(10);
+            sound[1].Play();
 
             lastAttack = Time.time + attackDelay;
         }

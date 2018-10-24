@@ -3,7 +3,11 @@ guid: 07139fcc259376a41ba2dd0ab0c5bfa9
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - currentAudio: {instanceID: 0}
+  - menu: {fileID: 8300000, guid: a4c6ebfe456cff948804189fae722f29, type: 3}
+  - overworld: {fileID: 8300000, guid: 3af1fdb2558434947a1f9fc8a4bbc7d9, type: 3}
+  - combat: {fileID: 8300000, guid: 823815995f2c26741a0cdbcf4b7068aa, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

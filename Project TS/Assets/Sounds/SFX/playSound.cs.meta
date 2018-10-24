@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: d63a9b4a0d1bb3240a46f5231d76b947
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - currentAudio: {instanceID: 0}
+  - humanStep: {fileID: 8300000, guid: f3d94728085810242804d96c0b616785, type: 3}
+  - dogStep: {fileID: 8300000, guid: eab53c686e8e9884289935e205053576, type: 3}
+  - humanHit: {fileID: 8300000, guid: 42793d542a6ff704e91b4c8d1a6e8328, type: 3}
+  - dogHit: {fileID: 8300000, guid: 1875d99ce448c174cb5c277e0a52c67e, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
