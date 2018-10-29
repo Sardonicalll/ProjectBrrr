@@ -16,6 +16,10 @@ public class Stamina : MonoBehaviour {
         {
             stamina += 0.1f;
         }
+        if(stamina > 100)
+        {
+            stamina = 100;
+        }
 	}
 
     public void Exhaust(float amount)
