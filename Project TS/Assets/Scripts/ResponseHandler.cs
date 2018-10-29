@@ -27,7 +27,7 @@ public class ResponseHandler : MonoBehaviour { // Causes sword/animal damage sou
     {
         if(hit.name == "Sword")
         {
-            health.TakeDamage(5);
+            health.TakeDamage(12);
             TextPro.text = (health.GetHealth()).ToString();
             sound.Play(); // Play sword hit sound
         }

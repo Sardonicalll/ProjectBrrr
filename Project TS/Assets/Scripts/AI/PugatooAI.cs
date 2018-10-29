@@ -20,6 +20,7 @@ public class PugatooAI : MonoBehaviour { // Playing the human damaged sound effe
 
     public float aggroRange = 5.3f;
     public float attackRange = 1.3f;
+    public float biteDamage = 5;
 
     public float attackDelay = 1;
     float lastAttack = 0;
@@ -37,13 +38,9 @@ public class PugatooAI : MonoBehaviour { // Playing the human damaged sound effe
 	// Update is called once per frame
 	void Update () {
         var dist = Vector3.Distance(this.transform.position, player.transform.position);
-        if(!aggro && dist <= aggroRange)
+        if (!aggro && dist <= aggroRange)
         {
             aggro = true;
-        }
-        else if (aggro && dist >= aggroRange)
-        {
-            aggro = false;
         }
 
         if (aggro)
@@ -87,7 +84,7 @@ public class PugatooAI : MonoBehaviour { // Playing the human damaged sound effe
         {
             transform.LookAt(player);
             animator.SetTrigger("Lunge");
-            player.GetComponent<Health>().TakeDamage(10);
+            player.GetComponent<Health>().TakeDamage(biteDamage);
             sound[1].Play();
 
             lastAttack = Time.time + attackDelay;

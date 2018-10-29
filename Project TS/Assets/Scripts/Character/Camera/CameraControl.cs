@@ -14,7 +14,7 @@ public class CameraControl : MonoBehaviour
 
     private float currentX = 0.0f;
     private float currentY = 45.0f;
-
+    private bool CanMove = true;
     private void Start()
     {
         lookAt = GameObject.FindWithTag("Player").transform.Find("lookAt").transform;
@@ -25,21 +25,31 @@ public class CameraControl : MonoBehaviour
 
     private void Update()
     {
-        currentY += Input.GetAxis("Mouse Y");
+        if (CanMove)
+        {
+            currentY += Input.GetAxis("Mouse Y");
 
-        currentY = Mathf.Clamp(currentY, Y_ANGLE_MIN, Y_ANGLE_MAX);
+            currentY = Mathf.Clamp(currentY, Y_ANGLE_MIN, Y_ANGLE_MAX);
+        }
     }
 
     private void LateUpdate()
     {
-        Vector3 dir = new Vector3(0, 0, -distance);
-        Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
-        camTransform.position = lookAt.position + rotation * dir;
-        camTransform.LookAt(lookAt.position);
+        if (CanMove)
+        {
+            Vector3 dir = new Vector3(0, 0, -distance);
+            Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
+            camTransform.position = lookAt.position + rotation * dir;
+            camTransform.LookAt(lookAt.position);
+        }
     }
 
     public void setX(float x)
     {
         currentX += x;
+    }
+    public void Toggle()
+    {
+        CanMove = false;
     }
 }

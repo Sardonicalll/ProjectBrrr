@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Health : MonoBehaviour { // Animal damaged sound now in ResponseHandler.cs
 
     public float health = 100;
     private float maxHealth;
+    bool played = false;
 
 	void Start () {
         maxHealth = health;
@@ -19,6 +20,16 @@ public class Health : MonoBehaviour { // Animal damaged sound now in ResponseHan
             if(gameObject.tag != "Player")
             {
                 Destroy(gameObject);
+            }
+            else
+            {
+                if (!played)
+                {
+                    played = true;
+                    gameObject.GetComponent<PlayerController>().ToggleMove();
+                    gameObject.GetComponent<PlayerController>().Die();
+                    Invoke("Restart", 4f);
+                }
             }
 	}
 	}
@@ -43,5 +54,11 @@ public class Health : MonoBehaviour { // Animal damaged sound now in ResponseHan
     public float GetMaxHealth()
     {
         return maxHealth;
+    }
+
+    public void Restart()
+    {
+        gameObject.GetComponent<PlayerController>().ToggleMove();
+        SceneManager.LoadScene(0);
     }
 }

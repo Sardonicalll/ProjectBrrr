@@ -30,8 +30,8 @@ public class UIController : MonoBehaviour {
         float maxHealth = ph.GetMaxHealth();
         float maxStamina = ps.GetMaxStamina();
 
-        hpT.text = ((health/maxHealth)*100).ToString() + "%";
-        stT.text = ((stamina / maxStamina) * 100).ToString() + "%";
+        hpT.text = decimal.Round(((decimal)(health / maxHealth) * 100), 1).ToString() + "%";
+        stT.text = decimal.Round(((decimal)(stamina / maxStamina) * 100),1).ToString() + "%";
 
         hpS.value = 1 - (health / maxHealth);
         stS.value = 1 - (stamina / maxStamina);

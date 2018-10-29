@@ -12,7 +12,10 @@ public class Stamina : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        if(stamina < 100)
+        {
+            stamina += 0.1f;
+        }
 	}
 
     public void Exhaust(float amount)
